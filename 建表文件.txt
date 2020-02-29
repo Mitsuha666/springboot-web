@@ -1,0 +1,17 @@
+CREATE TABLE `department` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `departmentName` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `employee` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `lastName` varchar(50) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `gender` int(2) DEFAULT NULL,
+  `birth` date DEFAULT NULL,
+  `did` int(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `fkdid` (`did`),
+  CONSTRAINT `fkdid` FOREIGN KEY (`did`) REFERENCES `department` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
